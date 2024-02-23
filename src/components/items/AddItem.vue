@@ -2,7 +2,7 @@
 import { reactive, ref } from 'vue'
 import router from '@/router'
 import { Delete, Download, Plus, ZoomIn } from '@element-plus/icons-vue'
-import { UploadFile, UploadProps, UploadUserFile } from 'element-plus'
+import {ElMessage, UploadFile, UploadProps, UploadUserFile} from 'element-plus'
 import myAxios from '@/api/MyAxios'
 import { useUserStore } from '@/stores/user'
 
@@ -58,6 +58,11 @@ const handleSubmit = async () => {
 
       myAxios.post('/item/upload', {
         ...uploadInfo
+      }).then((resp) => {
+        ElMessage({
+          message: '发布需求成功',
+          type: 'success'
+        })
       })
     })
 }

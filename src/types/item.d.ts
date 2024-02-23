@@ -2,6 +2,7 @@ export type ItemType = {
   id: number
   demandUserId: number
   demandUsername: number
+  demandTakerId: number
   title: string
   type: string
   expectPrice: string

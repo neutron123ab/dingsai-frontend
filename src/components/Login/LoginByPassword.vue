@@ -7,6 +7,7 @@ import myAxios from '@/api/MyAxios'
 import { UserType } from '@/types/user'
 import { useUserStore } from '@/stores/user'
 import router from '@/router'
+import {ElMessage} from "element-plus";
 
 const loginInfo = reactive({
   username: '',
@@ -44,6 +45,10 @@ const handleSubmit = async () => {
       if (resp.code === 0) {
         const userStore = useUserStore()
         userStore.setCurrentUser(resp.data)
+        ElMessage({
+          message: '登录成功',
+          type: 'success'
+        })
         router.replace('/')
       }
     })

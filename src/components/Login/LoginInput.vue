@@ -3,6 +3,7 @@ import LoginByPhone from '@/components/Login/LoginByPhone.vue'
 import LoginByPassword from '@/components/Login/LoginByPassword.vue'
 
 import { ref } from 'vue'
+import router from "@/router";
 
 const activeName = ref('pass')
 const isLogin = ref(false)
@@ -10,6 +11,11 @@ const isLogin = ref(false)
 const handleLogin = () => {
   isLogin.value = !isLogin.value
 }
+
+const handleRegister = () => {
+  router.push("/login/update")
+}
+
 </script>
 
 <template>
@@ -25,7 +31,8 @@ const handleLogin = () => {
     </el-tabs>
   </div>
   <div class="pt-4">
-    <el-button type="primary" size="large" class="w-80" @click="handleLogin">登录</el-button>
+    <el-button type="primary" size="large" class="w-32" @click="handleLogin">登录</el-button>
+    <el-button size="large" class="w-32" @click="handleRegister">注册</el-button>
   </div>
 </template>
 
